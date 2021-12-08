@@ -1,25 +1,22 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Car;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLAdsDao implements Ads {
+public class MySQLAdsDao implements Cars {
     private Connection connection = null;
 
     public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -27,7 +24,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public List<Ad> all() {
+    public List<Car> all() {
         Statement stmt = null;
         try {
             stmt = connection.createStatement();
@@ -39,39 +36,42 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public Long insert(Ad ad) {
+    public Long insert(Car car) {
         try {
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            stmt.executeUpdate(createInsertQuery(car), Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
+            throw new RuntimeException("Error creating a new car.", e);
         }
     }
 
-    private String createInsertQuery(Ad ad) {
+    private String createInsertQuery(Car car) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
-            + "(" + ad.getUserId() + ", "
-            + "'" + ad.getTitle() +"', "
-            + "'" + ad.getDescription() + "')";
+                + "(" + car.getUserId() + ", "
+                + "'" + car.getTitle() + "', "
+                + "'" + car.getDescription() + "')";
     }
 
-    private Ad extractAd(ResultSet rs) throws SQLException {
-        return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+    private Car extractAd(ResultSet rs) throws SQLException {
+        return new Car(
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getInt("year"),
+                rs.getString("make"),
+                rs.getString("model"),
+                rs.getDouble("price"),
+                rs.getString("description")
         );
     }
 
-    private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
-        List<Ad> ads = new ArrayList<>();
+    private List<Car> createAdsFromResults(ResultSet rs) throws SQLException {
+        List<Car> cars = new ArrayList<>();
         while (rs.next()) {
-            ads.add(extractAd(rs));
+            cars.add(extractAd(rs));
         }
-        return ads;
+        return cars;
     }
 }
