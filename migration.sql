@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS cars (
     model VARCHAR(50) NOT NULL,
     price DOUBLE NOT NULL,
     description VARCHAR(400),
+    creation_date DATETIME NOT NULL default CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE

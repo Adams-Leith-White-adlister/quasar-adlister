@@ -3,13 +3,22 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.Config;
 
 public class DaoFactory {
-    private static Cars adsDao;
+    private static Cars carsDao;
+    private static Users usersDao;
     private static Config config = new Config();
 
-    public static Cars getAdsDao() {
-        if (adsDao == null) {
-            adsDao = new MySQLCarsDao(config);
+    public static Cars getCarsDao() {
+        if (carsDao == null) {
+            carsDao = new MySQLCarsDao(config);
         }
-        return adsDao;
+        return carsDao;
     }
+
+    public static Users getUsersDao(){
+        if(usersDao == null) {
+            usersDao = new MySQLUsersDao(config);
+        }
+        return usersDao;
+    }
+
 }

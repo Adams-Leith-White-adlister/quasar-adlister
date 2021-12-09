@@ -64,7 +64,8 @@ public class MySQLCarsDao implements Cars {
                 rs.getString("make"),
                 rs.getString("model"),
                 rs.getDouble("price"),
-                rs.getString("description")
+                rs.getString("description"),
+                rs.getDate("creationDate")
         );
     }
 
