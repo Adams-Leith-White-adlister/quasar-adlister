@@ -47,7 +47,7 @@ public class MySQLCarsDao implements Cars {
             statement.setString(4, car.getModel());
             statement.setDouble(5, car.getPrice());
             statement.setString(6, car.getDescription());
-
+            statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);

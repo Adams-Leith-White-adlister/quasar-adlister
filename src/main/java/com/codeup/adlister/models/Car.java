@@ -26,7 +26,7 @@ public class Car {
 
     }
 
-    public Car(long userId, int year, String make, String model, double price, String description) {
+    public Car(long userId, int year, String make, String model, double price, String parameter) {
         this.userId = userId;
         this.year = year;
         this.make = make;
@@ -90,4 +90,5 @@ public class Car {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
