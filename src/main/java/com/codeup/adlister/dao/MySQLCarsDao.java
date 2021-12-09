@@ -39,22 +39,37 @@ public class MySQLCarsDao implements Cars {
     @Override
     public Long insert(Car car) {
         try {
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(car), Statement.RETURN_GENERATED_KEYS);
-            ResultSet rs = stmt.getGeneratedKeys();
+            String sql =  "INSERT INTO cars(user_id, year, make, model, price, description) VALUES(?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setLong(1, car.getUserId());
+            statement.setInt(2, car.getYear());
+            statement.setString(3, car.getMake());
+            statement.setString(4, car.getModel());
+            statement.setDouble(5, car.getPrice());
+            statement.setString(6, car.getDescription());
+
+            ResultSet rs = statement.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
+//            Statement stmt = connection.createStatement();
+//            stmt.executeUpdate(createInsertQuery(car), Statement.RETURN_GENERATED_KEYS);
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+//            return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new car.", e);
         }
     }
 
-    private String createInsertQuery(Car car) {
-        return "INSERT INTO ads(user_id, title, description) VALUES "
-                + "(" + car.getUserId() + ", "
-//                + "'" + car.getTitle() + "', "
-                + "'" + car.getDescription() + "')";
-    }
+//    private String createInsertQuery(Car car) {
+//        return "INSERT INTO ads(user_id, year, make, model, price, description) VALUES "
+//                + "(" + car.getUserId() + ", "
+//                + "'" + car.getYear() + "', "
+//                + "'" + car.getMake() + "', "
+//                + "'" + car.getModel() + "', "
+//                + "'" + car.getPrice() + "', "
+//                + "'" + car.getDescription() + "')";
+//    }
 
     private Car extractAd(ResultSet rs) throws SQLException {
         return new Car(
