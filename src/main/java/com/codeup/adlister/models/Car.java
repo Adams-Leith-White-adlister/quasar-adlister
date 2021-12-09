@@ -1,5 +1,7 @@
 package com.codeup.adlister.models;
 
+import java.util.Date;
+
 public class Car {
     private long id;
     private long userId;
@@ -8,8 +10,11 @@ public class Car {
     private String model;
     private double price;
     private String description;
+    private Date creationDate;
 
-    public Car(long id, long userId, int year, String make, String model, double price, String description) {
+    //one constructor for insertion and one for extraction
+
+    public Car(long id, long userId, int year, String make, String model, double price, String description, Date creationDate) {
         this.id = id;
         this.userId = userId;
         this.year = year;
@@ -17,6 +22,8 @@ public class Car {
         this.model = model;
         this.price = price;
         this.description = description;
+        this.creationDate = creationDate;
+
     }
 
     public Car(long userId, int year, String make, String model, double price, String description) {

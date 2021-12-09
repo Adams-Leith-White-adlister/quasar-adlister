@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
-public class CreateAdServlet extends HttpServlet {
+public class CreateCarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
@@ -22,12 +23,13 @@ public class CreateAdServlet extends HttpServlet {
              // for now we'll hardcode the user id
                 Long.parseLong(request.getParameter("user_id")),
                 Integer.parseInt(request.getParameter("year")) ,
-            request.getParameter("make"),
-            request.getParameter("model"),
-            Double.parseDouble(request.getParameter("price")),
-            request.getParameter("description")
+                request.getParameter("make"),
+                request.getParameter("model"),
+                Double.parseDouble(request.getParameter("price")),
+                request.getParameter("description")
+
         );
-        DaoFactory.getAdsDao().insert(car);
-        response.sendRedirect("/ads");
+        DaoFactory.getCarsDao().insert(car);
+        response.sendRedirect("/cars");
     }
 }
