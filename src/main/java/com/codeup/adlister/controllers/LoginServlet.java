@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         // TODO: find a record in your database that matches the submitted password
         // TODO: make sure we find a user with that username
         // TODO: check the submitted password against what you have in your database
-        boolean validAttempt = false;
+        boolean validAttempt = username.equals("admin") && password.equals("password");
 
         if (validAttempt) {
             // TODO: store the logged in user object in the session, instead of just the username

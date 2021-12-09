@@ -1,12 +1,12 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Car;
 
 import java.util.List;
 
-public interface Ads {
+public interface Cars {
     // get a list of all the ads
-    List<Ad> all();
-    // insert a new ad and return the new ad's id
-    Long insert(Ad ad);
+    List<Car> all();
+    // insert a new car and return the new car's id
+    Long insert(Car car);
 }

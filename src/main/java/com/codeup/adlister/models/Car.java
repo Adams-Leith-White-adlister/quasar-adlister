@@ -1,21 +1,30 @@
 package com.codeup.adlister.models;
 
-public class Ad {
+public class Car {
     private long id;
     private long userId;
-    private String title;
+    private int year;
+    private String make;
+    private String model;
+    private double price;
     private String description;
 
-    public Ad(long id, long userId, String title, String description) {
+    public Car(long id, long userId, int year, String make, String model, double price, String description) {
         this.id = id;
         this.userId = userId;
-        this.title = title;
+        this.year = year;
+        this.make = make;
+        this.model = model;
+        this.price = price;
         this.description = description;
     }
 
-    public Ad(long userId, String title, String description) {
+    public Car(long userId, int year, String make, String model, double price, String description) {
         this.userId = userId;
-        this.title = title;
+        this.year = year;
+        this.make = make;
+        this.model = model;
+        this.price = price;
         this.description = description;
     }
 
@@ -35,12 +44,36 @@ public class Ad {
         this.userId = userId;
     }
 
-    public String getTitle() {
-        return title;
+    public int getYear() {
+        return year;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getDescription() {

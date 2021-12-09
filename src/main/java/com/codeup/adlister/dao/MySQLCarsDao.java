@@ -2,15 +2,16 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Car;
 import com.mysql.cj.jdbc.Driver;
+import com.codeup.adlister.Config;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLAdsDao implements Cars {
+public class MySQLCarsDao implements Cars {
     private Connection connection = null;
 
-    public MySQLAdsDao(Config config) {
+    public MySQLCarsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
@@ -28,7 +29,7 @@ public class MySQLAdsDao implements Cars {
         Statement stmt = null;
         try {
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
@@ -51,7 +52,7 @@ public class MySQLAdsDao implements Cars {
     private String createInsertQuery(Car car) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
                 + "(" + car.getUserId() + ", "
-                + "'" + car.getTitle() + "', "
+//                + "'" + car.getTitle() + "', "
                 + "'" + car.getDescription() + "')";
     }
 
