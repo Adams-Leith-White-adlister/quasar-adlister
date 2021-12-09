@@ -32,7 +32,7 @@ public class MySQLCarsDao implements Cars {
             ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
             return createAdsFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving all cars.", e);
         }
     }
 
@@ -51,25 +51,12 @@ public class MySQLCarsDao implements Cars {
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
-//            Statement stmt = connection.createStatement();
-//            stmt.executeUpdate(createInsertQuery(car), Statement.RETURN_GENERATED_KEYS);
-//            ResultSet rs = stmt.getGeneratedKeys();
-//            rs.next();
-//            return rs.getLong(1);
+
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new car.", e);
         }
     }
 
-//    private String createInsertQuery(Car car) {
-//        return "INSERT INTO ads(user_id, year, make, model, price, description) VALUES "
-//                + "(" + car.getUserId() + ", "
-//                + "'" + car.getYear() + "', "
-//                + "'" + car.getMake() + "', "
-//                + "'" + car.getModel() + "', "
-//                + "'" + car.getPrice() + "', "
-//                + "'" + car.getDescription() + "')";
-//    }
 
     private Car extractAd(ResultSet rs) throws SQLException {
         return new Car(
@@ -80,7 +67,7 @@ public class MySQLCarsDao implements Cars {
                 rs.getString("model"),
                 rs.getDouble("price"),
                 rs.getString("description"),
-                rs.getDate("creationDate")
+                rs.getDate("creation_date")
         );
     }
 

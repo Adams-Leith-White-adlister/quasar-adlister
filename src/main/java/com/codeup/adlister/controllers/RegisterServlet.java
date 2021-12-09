@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,17 +14,24 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+
         {
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+
+
         }
 
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             // TODO: ensure the submitted information is valid --check if they're null or empty
             String username = request.getParameter("username");
             String email = request.getParameter("email");
-            String password = request.getParameter("password");
+            String preHashedPassword = request.getParameter("password");
+            String password = BCrypt.hashpw(preHashedPassword, BCrypt.gensalt());
+            System.out.println(preHashedPassword);
 
-            //need to work on hashed password in the registerServlet
+            if (request.getSession().getAttribute("user") != null) {
+                response.sendRedirect("/profile");
+            }
 
             if(username == null || email == null || password == null){
                 response.sendRedirect("/register");

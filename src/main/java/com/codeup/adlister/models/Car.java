@@ -26,7 +26,7 @@ public class Car {
 
     }
 
-    public Car(long userId, int year, String make, String model, double price, String parameter) {
+    public Car(long userId, int year, String make, String model, double price, String description) {
         this.userId = userId;
         this.year = year;
         this.make = make;

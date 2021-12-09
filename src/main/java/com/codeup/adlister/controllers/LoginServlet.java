@@ -24,8 +24,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String hash = BCrypt.hashpw(password, BCrypt.gensalt());
-        System.out.println(hash);
+
 
         // TODO: find a record in your database that matches the submitted password
         // TODO: make sure we find a user with that username
