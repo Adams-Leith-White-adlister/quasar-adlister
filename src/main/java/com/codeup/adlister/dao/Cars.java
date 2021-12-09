@@ -9,4 +9,6 @@ public interface Cars {
     List<Car> all();
     // insert a new car and return the new car's id
     Long insert(Car car);
+
+    List<Car> allById();
 }
