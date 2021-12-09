@@ -11,6 +11,10 @@
 
     <div class="container">
         <h1>Welcome, <c:out value="${sessionScope.user}"/>!</h1>
+
+
+
+
     </div>
 
 </body>

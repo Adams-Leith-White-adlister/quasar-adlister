@@ -1,5 +1,7 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,9 +16,15 @@ public class ViewProfileServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         } else {
+            request.setAttribute("cars", DaoFactory.getCarsDao().allById());
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
     }
+
+
 }
