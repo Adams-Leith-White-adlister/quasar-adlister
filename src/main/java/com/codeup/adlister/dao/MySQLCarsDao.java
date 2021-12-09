@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Car;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import com.codeup.adlister.Config;
 
@@ -37,16 +38,34 @@ public class MySQLCarsDao implements Cars {
     }
 
     //write a method that will allow the logged in user to see all of their cars
-    public List<Car> allById() {
-        Statement stmt = null;
-        try {
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT cars.user_id AS A, users.id AS B FROM cars JOIN users ON cars.user_id = users.id");
-            return null;
-        } catch (SQLException e) {
-            throw new RuntimeException("error in the allById method", e);
-        }
 
+    public Car allById(Long id) {
+        Car car = null;
+        String query = "SELECT * FROM cars WHERE id = ? LIMIT 1";
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setLong(1, id);
+            ResultSet resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+                car = new Car(    //instantiate the new User Object
+                        resultSet.getLong("id"),
+                        resultSet.getInt("user_id"),
+                        resultSet.getInt("year"),
+                        resultSet.getString("make"),
+                        resultSet.getString("model"),
+                        resultSet.getDouble("price"),
+                        resultSet.getString("description"),
+                        resultSet.getDate("creation_date")
+                );
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+//        return createAdsFromResults(getResultSet);  //return the user object from user User = new User(...)
+        return car;
     }
 
     @Override
@@ -69,6 +88,8 @@ public class MySQLCarsDao implements Cars {
             throw new RuntimeException("Error creating a new car.", e);
         }
     }
+
+
 
 
     private Car extractAd(ResultSet rs) throws SQLException {
