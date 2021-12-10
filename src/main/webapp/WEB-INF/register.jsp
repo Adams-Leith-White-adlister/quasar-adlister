@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="email">Enter Email</label>
-            <input id="email" name="email" class="form-control" type="text">
+            <input id="email" name="email" class="form-control" type="email">
         </div>
         <div class="form-group">
             <label for="password">Create Password</label>
