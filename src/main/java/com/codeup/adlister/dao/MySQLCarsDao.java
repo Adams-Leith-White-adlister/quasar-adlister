@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Car;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import com.codeup.adlister.Config;
 
@@ -37,24 +38,59 @@ public class MySQLCarsDao implements Cars {
     }
 
     //write a method that will allow the logged in user to see all of their cars
-
-    public List<Car> allById(Long id) throws SQLException{
-        Car car = null;
+    public List<Car> allById(int userId) throws SQLException{
         String query = "SELECT * FROM cars WHERE user_id = ?";
         PreparedStatement ps;
-        List<Car> cars = new ArrayList<>();
             ps = connection.prepareStatement(query);
-            ps.setLong(1, id);
+            ps.setInt(1, userId);
             ResultSet resultSet = ps.executeQuery();
             return createAdsFromResults(resultSet);
     }
+
+    //write a method to view one car
+    public Car oneCarById(int id) throws SQLException{
+        String query = "SELECT * FROM cars WHERE id = ?";
+        PreparedStatement ps;
+        ps = connection.prepareStatement(query);
+        ps.setInt(1, id);
+        ResultSet resultSet = ps.executeQuery();
+        return extractAd(resultSet);
+    }
+
+    //write a method to get car by id
+    public Car findById(int id){
+        Car car = null;
+        String query = "SELECT * FROM cars WHERE id = ?";
+        PreparedStatement ps;
+        try{
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                car = new Car(
+                        rs.getInt("id"),
+                        rs.getInt("user_id"),
+                        rs.getInt("year"),
+                        rs.getString("make"),
+                        rs.getString("model"),
+                        rs.getDouble("price"),
+                        rs.getString("description"),
+                        rs.getDate("creation_date")
+                );
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return car;
+    }
+
 
     @Override
     public Long insert(Car car) {
         try {
             String sql =  "INSERT INTO cars(user_id, year, make, model, price, description) VALUES(?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, car.getUserId());
+            statement.setInt(1, car.getUserId());
             statement.setInt(2, car.getYear());
             statement.setString(3, car.getMake());
             statement.setString(4, car.getModel());
@@ -70,16 +106,11 @@ public class MySQLCarsDao implements Cars {
         }
     }
 
-    @Override
-    public Car allById() {
-        return null;
-    }
-
 
     private Car extractAd(ResultSet rs) throws SQLException {
         return new Car(
-                rs.getLong("id"),
-                rs.getLong("user_id"),
+                rs.getInt("id"),
+                rs.getInt("user_id"),
                 rs.getInt("year"),
                 rs.getString("make"),
                 rs.getString("model"),

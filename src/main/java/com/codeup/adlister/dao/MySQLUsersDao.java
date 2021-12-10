@@ -33,7 +33,7 @@ public class MySQLUsersDao implements Users {
             ResultSet resultSet = ps.executeQuery();
             if (resultSet.next()) {
                 user = new User(    //instantiate the new User Object
-                        resultSet.getLong("id"),
+                        resultSet.getInt("id"),
                         resultSet.getString("username"),
                         resultSet.getString("email"),
                         resultSet.getString("password")

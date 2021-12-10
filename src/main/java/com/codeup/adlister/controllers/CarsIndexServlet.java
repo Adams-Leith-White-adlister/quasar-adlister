@@ -1,6 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Car;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,5 +15,14 @@ public class CarsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("cars", DaoFactory.getCarsDao().all());
         request.getRequestDispatcher("/WEB-INF/cars/index.jsp").forward(request, response);
+
+        //start here after lunch, move this to viewCar servlet
+        for (Car car : DaoFactory.getCarsDao().all()) {
+            request.getSession().setAttribute("carId", car.getId());
+            request.getSession().setAttribute("carMake", car.getMake());
+            request.getSession().setAttribute("carModel", car.getModel());
+            System.out.println("car for each loop " + car.getId());
+        }
+
     }
 }
