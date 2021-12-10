@@ -1,14 +1,14 @@
 package com.codeup.adlister.models;
 
 public class User {
-    private long id;
+    private int id;
     private String username;
     private String email;
     private String password;
 
     public User() {}
 
-    public User(long id, String username, String email, String password) {
+    public User(int id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -22,11 +22,11 @@ public class User {
     }
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

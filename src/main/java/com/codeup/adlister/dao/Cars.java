@@ -11,5 +11,9 @@ public interface Cars {
     // insert a new car and return the new car's id
     Long insert(Car car);
 
-    List<Car> allById(Long id) throws SQLException;
+    List<Car> allById(int id) throws SQLException;
+
+    Car findById(int id);
+
+    Object oneCarById(int id) throws SQLException;
 }

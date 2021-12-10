@@ -3,8 +3,8 @@ package com.codeup.adlister.models;
 import java.util.Date;
 
 public class Car {
-    private long id;
-    private long userId;
+    private int id;
+    private int userId;
     private int year;
     private String make;
     private String model;
@@ -14,7 +14,7 @@ public class Car {
 
     //one constructor for insertion and one for extraction
 
-    public Car(long id, long userId, int year, String make, String model, double price, String description, Date creationDate) {
+    public Car(int id, int userId, int year, String make, String model, double price, String description, Date creationDate) {
         this.id = id;
         this.userId = userId;
         this.year = year;
@@ -26,7 +26,7 @@ public class Car {
 
     }
 
-    public Car(long userId, int year, String make, String model, double price, String description) {
+    public Car(int userId, int year, String make, String model, double price, String description) {
         this.userId = userId;
         this.year = year;
         this.make = make;
@@ -35,19 +35,19 @@ public class Car {
         this.description = description;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
