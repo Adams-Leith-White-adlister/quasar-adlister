@@ -70,7 +70,10 @@ public class MySQLCarsDao implements Cars {
         }
     }
 
-
+    @Override
+    public Car allById() {
+        return null;
+    }
 
 
     private Car extractAd(ResultSet rs) throws SQLException {
