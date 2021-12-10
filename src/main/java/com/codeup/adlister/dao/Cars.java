@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Car;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface Cars {
@@ -10,5 +11,5 @@ public interface Cars {
     // insert a new car and return the new car's id
     Long insert(Car car);
 
-    Car allById();
+    List<Car> allById(Long id) throws SQLException;
 }

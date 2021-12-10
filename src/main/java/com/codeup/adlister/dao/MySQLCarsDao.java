@@ -1,7 +1,6 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Car;
-import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import com.codeup.adlister.Config;
 
@@ -39,33 +38,15 @@ public class MySQLCarsDao implements Cars {
 
     //write a method that will allow the logged in user to see all of their cars
 
-    public Car allById(Long id) {
+    public List<Car> allById(Long id) throws SQLException{
         Car car = null;
-        String query = "SELECT * FROM cars WHERE id = ? LIMIT 1";
+        String query = "SELECT * FROM cars WHERE user_id = ?";
         PreparedStatement ps;
-        try {
+        List<Car> cars = new ArrayList<>();
             ps = connection.prepareStatement(query);
             ps.setLong(1, id);
             ResultSet resultSet = ps.executeQuery();
-            if (resultSet.next()) {
-                car = new Car(    //instantiate the new User Object
-                        resultSet.getLong("id"),
-                        resultSet.getInt("user_id"),
-                        resultSet.getInt("year"),
-                        resultSet.getString("make"),
-                        resultSet.getString("model"),
-                        resultSet.getDouble("price"),
-                        resultSet.getString("description"),
-                        resultSet.getDate("creation_date")
-                );
-            }
-
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-//        return createAdsFromResults(getResultSet);  //return the user object from user User = new User(...)
-        return car;
+            return createAdsFromResults(resultSet);
     }
 
     @Override

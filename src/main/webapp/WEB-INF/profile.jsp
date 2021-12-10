@@ -11,7 +11,14 @@
 
     <div class="container">
         <h1>Welcome, <c:out value="${sessionScope.user}"/>!</h1>
-
+        <c:forEach var="car" items="${cars}">
+            <div class="col-md-6">
+                <h2>${car.make}</h2>
+                <h2>${car.model}</h2>
+                <h3>${car.price}</h3>
+                <p>${car.description}</p>
+            </div>
+        </c:forEach>
 
 
 
