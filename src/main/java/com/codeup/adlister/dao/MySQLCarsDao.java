@@ -47,6 +47,18 @@ public class MySQLCarsDao implements Cars {
             return createAdsFromResults(resultSet);
     }
 
+    //method for search
+    public List<Car> searchCars(String userSearch) throws SQLException{
+        String query = "SELECT * FROM cars WHERE make LIKE ? OR model LIKE ?";
+        PreparedStatement ps;
+        ps = connection.prepareStatement(query);
+        ps.setString(1, "%" + userSearch + "%");
+        ps.setString(2, "%" + userSearch + "%");
+        ResultSet resultSet = ps.executeQuery();
+        return createAdsFromResults(resultSet);
+    }
+
+
     //write a method to view one car
     public Car getCarById(int id) throws SQLException{
         String query = "SELECT * FROM cars WHERE id = ?";

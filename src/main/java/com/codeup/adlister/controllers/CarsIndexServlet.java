@@ -16,7 +16,6 @@ public class CarsIndexServlet extends HttpServlet {
         request.setAttribute("cars", DaoFactory.getCarsDao().all());
         request.getRequestDispatcher("/WEB-INF/cars/index.jsp").forward(request, response);
 
-        //start here after lunch, move this to viewCar servlet
         for (Car car : DaoFactory.getCarsDao().all()) {
             request.getSession().setAttribute("carId", car.getId());
             request.getSession().setAttribute("carMake", car.getMake());

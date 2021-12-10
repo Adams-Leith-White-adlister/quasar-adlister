@@ -8,11 +8,13 @@
     </jsp:include></head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<div class="flex-container">
     <div class="col-md-6">
         <h2>${car.make}</h2>
-        <h2>${car.model}</h2>
-        <h3>${car.price}</h3>
+        <h3>${car.model}</h3>
+        <h4>${car.price}</h4>
         <p>${car.description}</p>
     </div>
+</div>
 </body>
 </html>
