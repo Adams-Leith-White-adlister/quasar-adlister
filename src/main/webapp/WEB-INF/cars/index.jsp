@@ -13,7 +13,7 @@
     <h1>Here are all the cars!</h1>
 
     <c:forEach var="car" items="${cars}">
-       <a href="/viewcar"> <div class="col-md-6">
+       <a href="${pageContext.request.contextPath}/viewcar/?carId=${car.id}"> <div class="col-md-6">
             <h2>${car.make}</h2>
             <h2>${car.model}</h2>
             <h3>${car.price}</h3>
