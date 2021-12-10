@@ -11,13 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet (name = "controllers.ViewCarServlet", urlPatterns = "/viewcar")
+@WebServlet (name = "controllers.ViewCarServlet", urlPatterns = "/viewcar/*")
 public class ViewCar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Car car = DaoFactory.getCarsDao().findById((Integer) request.getSession().getAttribute("carId"));
+
+        int carId = Integer.parseInt(request.getParameter("carId"));
 
         try {
-            request.setAttribute("car", DaoFactory.getCarsDao().oneCarById((int) car.getId()));
+            request.setAttribute("car", DaoFactory.getCarsDao().getCarById(carId));
         } catch (SQLException e) {
             e.printStackTrace();
         }

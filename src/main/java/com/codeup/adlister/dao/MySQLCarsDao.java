@@ -48,13 +48,26 @@ public class MySQLCarsDao implements Cars {
     }
 
     //write a method to view one car
-    public Car oneCarById(int id) throws SQLException{
+    public Car getCarById(int id) throws SQLException{
         String query = "SELECT * FROM cars WHERE id = ?";
         PreparedStatement ps;
         ps = connection.prepareStatement(query);
         ps.setInt(1, id);
-        ResultSet resultSet = ps.executeQuery();
-        return extractAd(resultSet);
+        ResultSet rs = ps.executeQuery();
+        Car car = null;
+        while (rs.next()) {
+            car = new Car(
+                    rs.getInt("id"),
+                    rs.getInt("user_id"),
+                    rs.getInt("year"),
+                    rs.getString("make"),
+                    rs.getString("model"),
+                    rs.getDouble("price"),
+                    rs.getString("description"),
+                    rs.getDate("creation_date")
+            );
+        }
+        return car;
     }
 
     //write a method to get car by id

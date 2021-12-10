@@ -15,5 +15,5 @@ public interface Cars {
 
     Car findById(int id);
 
-    Object oneCarById(int id) throws SQLException;
+    Object getCarById(int id) throws SQLException;
 }
