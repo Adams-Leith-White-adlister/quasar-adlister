@@ -16,4 +16,6 @@ public interface Cars {
     Car findById(int id);
 
     Object getCarById(int id) throws SQLException;
+
+    List<Car> searchCars(String userSearch) throws SQLException;
 }
