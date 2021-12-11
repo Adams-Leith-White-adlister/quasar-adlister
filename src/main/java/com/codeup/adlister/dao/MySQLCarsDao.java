@@ -49,11 +49,12 @@ public class MySQLCarsDao implements Cars {
 
     //method for search
     public List<Car> searchCars(String userSearch) throws SQLException{
-        String query = "SELECT * FROM cars WHERE make LIKE ? OR model LIKE ?";
+        String query = "SELECT * FROM cars WHERE make LIKE ? OR model LIKE ? OR year LIKE ?";
         PreparedStatement ps;
         ps = connection.prepareStatement(query);
         ps.setString(1, "%" + userSearch + "%");
         ps.setString(2, "%" + userSearch + "%");
+        ps.setString(3, "%" + userSearch + "%");
         ResultSet resultSet = ps.executeQuery();
         return createAdsFromResults(resultSet);
     }
