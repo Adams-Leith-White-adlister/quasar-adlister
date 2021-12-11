@@ -10,6 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="flex-container">
     <div class="col-md-6">
+        <h1>${user.username}</h1>
         <h2>${car.make}</h2>
         <h3>${car.model}</h3>
         <h4>${car.price}</h4>
