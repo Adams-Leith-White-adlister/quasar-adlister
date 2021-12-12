@@ -1,5 +1,5 @@
     <div class="container">
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/cars">Carlister</a>
             </div>
@@ -9,15 +9,15 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item pl-2"><a href="/register" class="text-dark nav-link">Register</a></li>
+                    <li class="nav-item pl-2"><a href="/register" class="text-light nav-link">Register</a></li>
                     <li class="nav-item pl-2">
-                        <a href="/login" class="text-dark nav-link">Login</a>
+                        <a href="/login" class="text-light nav-link">Login</a>
                     </li>
                     <li class="nav-item pl-2">
-                        <a href="/cars/create" class="text-dark nav-link">Create</a>
+                        <a href="/cars/create" class="text-light nav-link">Create</a>
                     </li>
                     <li class="nav-item pl-2">
-                        <a href="/logout" class="text-dark nav-link">Logout</a>
+                        <a href="/logout" class="text-light nav-link">Logout</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/search" method="post">
