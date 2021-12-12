@@ -18,4 +18,6 @@ public interface Cars {
     Object getCarById(int id) throws SQLException;
 
     List<Car> searchCars(String userSearch) throws SQLException;
+
+	void updateCar(Car car) throws SQLException;
 }

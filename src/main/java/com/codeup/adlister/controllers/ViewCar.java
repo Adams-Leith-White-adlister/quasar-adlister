@@ -26,7 +26,6 @@ public class ViewCar extends HttpServlet {
             e.printStackTrace();
         }
 
-
         request.getRequestDispatcher("/WEB-INF/cars/viewcar.jsp").forward(request, response);
 
     }
