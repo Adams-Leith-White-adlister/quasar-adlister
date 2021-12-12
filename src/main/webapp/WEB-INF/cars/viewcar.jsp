@@ -20,6 +20,7 @@
                     <h4 class="card-subtitle mb-1">${car.year}</h4>
                     <h4 class="card-subtitle mb-1">${car.price}</h4>
                     <p class="card-text">${car.description}</p>
+                    <p class="card-text text-muted small">Created by: ${user.username}</p>
                 </div>
             </div>
         </div>

@@ -9,15 +9,15 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item pl-2"><a href="/register" class=text-dark">Register</a></li>
+                    <li class="nav-item pl-2"><a href="/register" class="text-dark nav-link">Register</a></li>
                     <li class="nav-item pl-2">
-                        <a href="/login" class=text-dark">Login</a>
+                        <a href="/login" class="text-dark nav-link">Login</a>
                     </li>
                     <li class="nav-item pl-2">
-                        <a href="/cars/create" class=text-dark">Create</a>
+                        <a href="/cars/create" class="text-dark nav-link">Create</a>
                     </li>
                     <li class="nav-item pl-2">
-                        <a href="/logout" class=text-dark">Logout</a>
+                        <a href="/logout" class="text-dark nav-link">Logout</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/search" method="post">
