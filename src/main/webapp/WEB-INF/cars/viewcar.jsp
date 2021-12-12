@@ -4,17 +4,25 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Please Log In" />
-    </jsp:include></head>
+        <jsp:param name="title" value="Please Log In"/>
+    </jsp:include>
+</head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="flex-container">
-    <div class="col-md-6">
-        <h1>${user.username}</h1>
-        <h2>${car.make}</h2>
-        <h3>${car.model}</h3>
-        <h4>${car.price}</h4>
-        <p>${car.description}</p>
+
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card mb-2 shadow">
+                <div class="card-body">
+                    <h2 class="card-title">${car.make}</h2>
+                    <h3 class="card-subtitle mb-1">${car.model}</h3>
+                    <h4 class="card-subtitle mb-1">${car.year}</h4>
+                    <h4 class="card-subtitle mb-1">${car.price}</h4>
+                    <p class="card-text">${car.description}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>

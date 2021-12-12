@@ -3,26 +3,30 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Your Profile" />
+        <jsp:param name="title" value="Your Profile"/>
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-    <div class="container">
-        <h1>Welcome, <c:out value="${sessionScope.user}"/>!</h1>
+<div class="container">
+    <h1>Welcome, <c:out value="${sessionScope.user}"/>!</h1>
+    <div class="row">
         <c:forEach var="car" items="${cars}">
-            <div class="col-md-6">
-                <h2>${car.make}</h2>
-                <h2>${car.model}</h2>
-                <h3>${car.price}</h3>
-                <p>${car.description}</p>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card mb-3 shadow">
+                <div class="card-body">
+                    <h2 class="card-title">${car.make}</h2>
+                    <h2 class="card-subtitle mb-1">${car.model}</h2>
+                    <h4 class="card-subtitle mb-1">${car.year}</h4>
+                    <h3 class="card-subtitle">${car.price}</h3>
+                    <p class="card-text">${car.description}</p>
+                </div>
             </div>
-        </c:forEach>
-
-
-
+        </div>
+</c:forEach>
     </div>
+</div>
 
 </body>
 </html>

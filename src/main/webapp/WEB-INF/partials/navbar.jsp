@@ -9,17 +9,20 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active pl-2"><a href="/register">Register</a></li>
+                    <li class="nav-item pl-2"><a href="/register" class=text-dark">Register</a></li>
                     <li class="nav-item pl-2">
-                        <a href="/login">Login</a>
+                        <a href="/login" class=text-dark">Login</a>
                     </li>
                     <li class="nav-item pl-2">
-                        <a href="/logout">Logout</a>
+                        <a href="/cars/create" class=text-dark">Create</a>
+                    </li>
+                    <li class="nav-item pl-2">
+                        <a href="/logout" class=text-dark">Logout</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="/search" method="post">
                     <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
