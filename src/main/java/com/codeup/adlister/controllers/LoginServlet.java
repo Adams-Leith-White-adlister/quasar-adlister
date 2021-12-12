@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
@@ -31,12 +32,16 @@ public class LoginServlet extends HttpServlet {
         // TODO: make sure we find a user with that username
         // TODO: check the submitted password against what you have in your database
         User userVar = DaoFactory.getUsersDao().findByUsername(username);
-        String userPassword = userVar.getPassword();
-        boolean passwordMatch = BCrypt.checkpw(password, userPassword);
+
         if(userVar == null) {
+            //response.sendRedirect("/loginError");
+            JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ERROR! incorrect username or password");
             response.sendRedirect("/login");
             return;
         }
+
+        String userPassword = userVar.getPassword();
+        boolean passwordMatch = BCrypt.checkpw(password, userPassword);
         boolean validAttempt = username.equals(userVar.getUsername()) && passwordMatch;
 
         if (validAttempt) {
@@ -44,7 +49,10 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", username);
             response.sendRedirect("/profile");
         } else {
-            response.sendRedirect("/loginError");
+            JFrame frame = new JFrame();
+            //response.sendRedirect("/loginError");
+            JOptionPane.showMessageDialog(frame, "ERROR! incorrect username or password");
+            response.sendRedirect("/login");
         }
     }
 }

@@ -18,6 +18,9 @@ public class ViewCar extends HttpServlet {
         int carId = Integer.parseInt(request.getParameter("carId"));
 
         try {
+            Car car = (Car) DaoFactory.getCarsDao().getCarById(carId);
+            int userId = car.getUserId();
+            request.setAttribute("user", DaoFactory.getUsersDao().findByUserId(userId));
             request.setAttribute("car", DaoFactory.getCarsDao().getCarById(carId));
         } catch (SQLException e) {
             e.printStackTrace();
