@@ -16,6 +16,7 @@
         <h4>${car.price}</h4>
         <p>${car.description}</p>
     </div>
+    <a href="${pageContext.request.contextPath}/edit-car/?carId=${car.id}">Edit Car</a>
 </div>
 </body>
 </html>

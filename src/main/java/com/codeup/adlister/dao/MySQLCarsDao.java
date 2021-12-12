@@ -110,6 +110,17 @@ public class MySQLCarsDao implements Cars {
         return car;
     }
 
+    public void updateCar(Car car) throws SQLException{
+        String query = "UPDATE cars SET year = ?, make = ?, model = ?, price = ?, description = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, car.getYear());
+        statement.setString(2, car.getMake());
+        statement.setString(3, car.getModel());
+        statement.setDouble(4, car.getPrice());
+        statement.setString(5, car.getDescription());
+        statement.setInt(6, car.getId());
+        statement.executeUpdate();
+    }
 
     @Override
     public Long insert(Car car) {

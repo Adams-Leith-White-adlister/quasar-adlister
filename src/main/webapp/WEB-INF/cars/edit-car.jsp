@@ -1,0 +1,34 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+	<title>Edit Car</title>
+</head>
+<body>
+<div class="container">
+	<h3>Edit Car:</h3>
+	<form action="/edit-car" method="post">
+		<div class="form-group">
+			<label for="year">Year</label>
+			<input id="year" name="year" class="form-control" type="text" value="${car.year}" required>
+		</div>
+		<div class="form-group">
+			<label for="make">Make</label>
+			<input id="make" name="make" class="form-control" type="text" value="${car.make}" required>
+		</div>
+		<div class="form-group">
+			<label for="model">Model</label>
+			<input id="model" name="model" class="form-control" type="text" value="${car.model}" required>
+		</div>
+		<div class="form-group">
+			<label for="price">Price</label>
+			<input id="price" name="price" class="form-control" type="text" value="${car.price}" required>
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label>
+			<textarea id="description" name="description" class="form-control" required>${car.description}</textarea>
+		</div>
+		<button type="submit" name="editId" value="${car.id}" class="btn btn-block btn-primary">Submit Changes</button>
+	</form>
+</div>
+</body>
+</html>
