@@ -1,9 +1,8 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Car;
-import com.codeup.adlister.models.User;
-import com.mysql.cj.jdbc.Driver;
 import com.codeup.adlister.Config;
+import com.codeup.adlister.models.Car;
+import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,7 +36,7 @@ public class MySQLCarsDao implements Cars {
         }
     }
 
-    //write a method that will allow the logged in user to see all of their cars
+    //write a method that will allow the logged-in user to see all of their cars
     public List<Car> allById(int userId) throws SQLException{
         String query = "SELECT * FROM cars WHERE user_id = ?";
         PreparedStatement ps;
@@ -110,8 +109,9 @@ public class MySQLCarsDao implements Cars {
         return car;
     }
 
+    // Method for updating a car in the DB
     public void updateCar(Car car) throws SQLException{
-        String query = "UPDATE cars SET year = ?, make = ?, model = ?, price = ?, description = ? WHERE id = ?";
+        String query = "UPDATE cars SET year = ?, make = ?, model = ?, price = ?, description = ? WHERE id = ?;";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, car.getYear());
         statement.setString(2, car.getMake());

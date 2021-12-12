@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-	<title>Edit Car</title>
-</head>
+	<jsp:include page="/WEB-INF/partials/head.jsp">
+		<jsp:param name="title" value="Edit Car"/>
+	</jsp:include></head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
 	<h3>Edit Car:</h3>
-	<form action="/edit-car" method="post">
+	<form action="/edit-car/*" method="post">
 		<div class="form-group">
 			<label for="year">Year</label>
 			<input id="year" name="year" class="form-control" type="text" value="${car.year}" required>
