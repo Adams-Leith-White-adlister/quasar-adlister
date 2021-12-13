@@ -10,4 +10,5 @@ public interface Users {
     Long insert(User user);
     User findByUserId(int userId);
     void updateUser(User user) throws SQLException;
+    void deleteUserById(int id) throws SQLException;
 }

@@ -97,4 +97,12 @@ public class MySQLUsersDao implements Users {
         statement.setInt(4, user.getId());
         statement.executeUpdate();
     }
+
+    public void deleteUserById(int id) throws SQLException{
+        String query = "DELETE FROM users WHERE id = ?";
+        PreparedStatement ps;
+        ps = connection.prepareStatement(query);
+        ps.setInt(1, id);
+        ps.executeUpdate();
+    }
 }
