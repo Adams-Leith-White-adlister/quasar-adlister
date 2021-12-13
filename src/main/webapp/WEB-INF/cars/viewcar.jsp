@@ -17,10 +17,10 @@
         <div class="col-12" id="card-container">
             <div class="card mb-2 shadow border-danger h-100 text-center">
                 <div class="card-body bg-dark text-light rounded-lg">
-                    <h1 class="card-title mt-4">${car.year} ${car.make} ${car.model}</h1>
-                    <h2 class="card-subtitle mt-1">$${car.price}</h2>
-                    <p class="card-text">${car.description}</p>
-                    <p class="card-text text-muted small">Created by: ${user.username} | Posted
+                    <h1 class="card-title mt-4"><c:out value="${car.year} ${car.make} ${car.model}"/></h1>
+                    <h2 class="card-subtitle mt-1">$<c:out value="${car.price}"/></h2>
+                    <p class="card-text"><c:out value="${car.description}"/></p>
+                    <p class="card-text text-muted small">Created by: <c:out value="${user.username}"/> | Posted
                         on: ${car.creationDate}</p>
                     <button type="button" class="btn btn-outline-danger" onclick="history.back()">Back</button>
 

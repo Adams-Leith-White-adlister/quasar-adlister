@@ -17,9 +17,9 @@
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="card mb-3 shadow border-danger">
                 <div class="card-body bg-dark text-light rounded-bg">
-                    <h3 class="card-title">${car.year} ${car.make} ${car.model}</h3>
-                    <h4 class="card-subtitle">$${car.price}</h4>
-                    <p class="card-text">${car.description}</p>
+                    <h3 class="card-title"><c:out value="${car.year} ${car.make} ${car.model}"/></h3>
+                    <h4 class="card-subtitle">$<c:out value="${car.price}"/></h4>
+                    <p class="card-text"><c:out value="${car.description}"/></p>
                     <a href="${pageContext.request.contextPath}/edit-car/?carId=${car.id}">Edit Car</a>
                     <form action="/profile" method="post">
                         <button type="submit" name="carId" value="${car.id}" class="btn btn-block btn-primary">Delete</button>

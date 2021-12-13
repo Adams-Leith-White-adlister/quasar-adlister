@@ -17,9 +17,9 @@
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="card mb-3 shadow border-danger">
                     <div class="card-body bg-dark text-light rounded-lg">
-                        <h4 class="card-title">${car.year} ${car.make} ${car.model}</h4>
-                        <h5 class="card-subtitle">$${car.price}</h5>
-                        <p class="card-text">${car.description}</p>
+                        <h4 class="card-title"><c:out value="${car.year} ${car.make} ${car.model}"/></h4>
+                        <h5 class="card-subtitle">$<c:out value="${car.price}"/></h5>
+                        <p class="card-text"><c:out value="${car.description}"/></p>
                         <a href="${pageContext.request.contextPath}/viewcar/?carId=${car.id}" class="card-link">View
                             Car</a>
                     </div>
