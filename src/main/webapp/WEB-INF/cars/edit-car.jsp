@@ -6,8 +6,8 @@
 	</jsp:include></head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="container">
-	<h3>Edit Car:</h3>
+<div class="container create-bg text-light mt-4 py-4 rounded">
+	<h1 class="text-center">Edit Car:</h1>
 	<form action="/edit-car/*" method="post">
 		<div class="form-group">
 			<label for="year">Year</label>
@@ -30,7 +30,7 @@
 			<textarea id="description" name="description" class="form-control" required>${car.description}</textarea>
 		</div>
 		<button type="submit" name="editId" value="${car.id}" class="btn btn-block btn-primary">Submit Changes</button>
-		<a href="/profile">Back to profile</a>
+		<a  class="btn btn-primary mt-2" href="/profile">Back to profile</a>
 	</form>
 </div>
 </body>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 @WebServlet(name = "EditCarServlet", urlPatterns = "/edit-car/*")
@@ -35,13 +36,16 @@ public class EditCarServlet extends HttpServlet {
 		int carId = Integer.parseInt(request.getParameter("editId"));
 		User user = DaoFactory.getUsersDao().findByUsername((String) request.getSession().getAttribute("user"));
 
+		String price = request.getParameter("price");
+		double doublePrice = Double.parseDouble(price.replaceAll(",", ""));
+
 		Car car = new Car(
 				carId,
 				user.getId(),
 				Integer.parseInt(request.getParameter("year")) ,
 				request.getParameter("make"),
 				request.getParameter("model"),
-				Double.parseDouble(request.getParameter("price")),
+				doublePrice,
 				request.getParameter("description"),
 				new Date() // Do we need the date property?
 		);

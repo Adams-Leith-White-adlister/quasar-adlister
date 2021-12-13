@@ -13,3 +13,7 @@ body {
     height: 300px;
 }
 
+.create-bg {
+    background-color: rgba(41, 43, 44, 0.5);
+}
+

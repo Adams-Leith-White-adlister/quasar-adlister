@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,21 +11,23 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <div class="container">
-    <h1>Welcome, <c:out value="${sessionScope.user}"/>!</h1>
-    <a href="/edit-profile">Edit My Profile</a>
+    <h1 class="text-center mt-2">Welcome, <c:out value="${sessionScope.user}"/>!</h1>
+    <a href="/edit-profile" class="btn btn-primary mb-2">Edit My Profile</a>
     <div class="row">
         <c:forEach var="car" items="${cars}">
-        <div class="col-12 col-sm-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4 text-center">
             <div class="card mb-3 shadow border-danger">
-                <div class="card-body bg-dark text-light rounded-bg">
-                    <h3 class="card-title"><c:out value="${car.year} ${car.make} ${car.model}"/></h3>
-                    <h4 class="card-subtitle">$<c:out value="${car.price}"/></h4>
-                    <p class="card-text"><c:out value="${car.description}"/></p>
-                    <a href="${pageContext.request.contextPath}/edit-car/?carId=${car.id}">Edit Car</a>
-                    <form action="/profile" method="post">
-                        <button type="submit" name="carId" value="${car.id}" class="btn btn-block btn-primary">Delete</button>
-                    </form>
-
+                <div class="bg-dark text-light rounded-lg">
+                    <h4 class="card-header"><c:out value="${car.year} ${car.make} ${car.model}"/></h4>
+                    <div class="card-body py-0 pt-2">
+                        <h5 class="card-title">$<f:formatNumber type="number" pattern="0.00" value="${car.price}"/></h5>
+                        <span class="text-muted">Description: </span>
+                        <p class="card-text"><c:out value="${car.description}"/></p>
+                        <a href="${pageContext.request.contextPath}/edit-car/?carId=${car.id}" class="btn btn-block btn-primary mb-2">Edit Car</a>
+                        <form action="/profile" method="post">
+                            <button type="submit" name="carId" value="${car.id}" class="btn btn-block btn-danger"><i class="bi bi-trash"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -7,8 +7,8 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-        <h1>Please Log In</h1>
+    <div class="container create-bg text-light mt-4 py-4 rounded">
+        <h1 class="text-center">Please Log In</h1>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -20,7 +20,8 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
             <br>
-            <p class="bgblock">Not a member? <a href="/register">Register here!</a></p>
+            <p class="bgblock">Not a member?
+            <a class="btn btn-primary" href="/register">Register here!</a></p>
         </form>
     </div>
 
