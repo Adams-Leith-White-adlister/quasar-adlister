@@ -20,7 +20,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
             <br>
-            <p>Not a member? <a href="/register">Register here!</a></p>
+            <p class="bgblock">Not a member? <a href="/register">Register here!</a></p>
         </form>
     </div>
 

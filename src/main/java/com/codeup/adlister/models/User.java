@@ -50,7 +50,7 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String setPassword(String password) {
+        return this.password = password;
     }
 }

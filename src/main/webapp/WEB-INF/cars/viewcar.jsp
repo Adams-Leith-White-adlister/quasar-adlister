@@ -15,14 +15,11 @@
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="card mb-2 shadow border-danger">
                 <div class="card-body bg-dark text-light rounded-lg">
-                    <h2 class="card-title">${car.make}</h2>
-                    <h3 class="card-subtitle mb-1">${car.model}</h3>
-                    <h4 class="card-subtitle mb-1">${car.year}</h4>
-                    <h4 class="card-subtitle mb-1">${car.price}</h4>
+                    <h4 class="card-title">${car.year} ${car.make} ${car.model}</h4>
+                    <h5 class="card-subtitle mb-1">$${car.price}</h5>
                     <p class="card-text">${car.description}</p>
-                    <p class="card-text text-muted small">Created by: ${user.username}</p>
+                    <p class="card-text text-muted small">Created by: ${user.username} | Posted on: ${car.creationDate}</p>
                     <button type="button" onclick="history.back()">Back</button>
-
                 </div>
             </div>
         </div>

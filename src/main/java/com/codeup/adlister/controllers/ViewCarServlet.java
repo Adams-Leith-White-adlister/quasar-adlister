@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet (name = "controllers.ViewCarServlet", urlPatterns = "/viewcar/*")
-public class ViewCar extends HttpServlet {
+public class ViewCarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int carId = Integer.parseInt(request.getParameter("carId"));

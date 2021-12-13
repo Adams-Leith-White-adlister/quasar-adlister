@@ -91,4 +91,7 @@ public class Car {
         this.description = description;
     }
 
+    public Date getCreationDate() {
+        return creationDate;
+    }
 }
