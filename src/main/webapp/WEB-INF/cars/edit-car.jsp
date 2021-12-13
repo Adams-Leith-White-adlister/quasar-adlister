@@ -30,6 +30,7 @@
 			<textarea id="description" name="description" class="form-control" required>${car.description}</textarea>
 		</div>
 		<button type="submit" name="editId" value="${car.id}" class="btn btn-block btn-primary">Submit Changes</button>
+		<a href="/profile">Back to profile</a>
 	</form>
 </div>
 </body>

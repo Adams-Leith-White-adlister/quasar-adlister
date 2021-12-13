@@ -21,6 +21,7 @@
                     <h4 class="card-subtitle mb-1">${car.year}</h4>
                     <h3 class="card-subtitle">${car.price}</h3>
                     <p class="card-text">${car.description}</p>
+                    <a href="${pageContext.request.contextPath}/edit-car/?carId=${car.id}">Edit Car</a>
                 </div>
             </div>
         </div>

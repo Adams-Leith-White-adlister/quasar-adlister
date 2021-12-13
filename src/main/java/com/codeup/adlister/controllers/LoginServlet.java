@@ -33,6 +33,8 @@ public class LoginServlet extends HttpServlet {
         // TODO: check the submitted password against what you have in your database
         User userVar = DaoFactory.getUsersDao().findByUsername(username);
 
+
+
         if(userVar == null) {
             //response.sendRedirect("/loginError");
             JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ERROR! incorrect username or password");
