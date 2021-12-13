@@ -17,12 +17,11 @@
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="card mb-3 shadow border-danger">
                     <div class="card-body bg-dark text-light rounded-lg">
-                            <h2 class="card-title">${car.make}</h2>
-                            <h3 class="card-subtitle mb-1">${car.model}</h3>
-                        <h4 class="card-subtitle mb-1">${car.year}</h4>
-                        <h4 class="card-subtitle">$${car.price}</h4>
-                            <p class="card-text">${car.description}</p>
-                        <a href="${pageContext.request.contextPath}/viewcar/?carId=${car.id}" class="card-link">View Car</a>
+                        <h4 class="card-title">${car.year} ${car.make} ${car.model}</h4>
+                        <h5 class="card-subtitle">$${car.price}</h5>
+                        <p class="card-text">${car.description}</p>
+                        <a href="${pageContext.request.contextPath}/viewcar/?carId=${car.id}" class="card-link">View
+                            Car</a>
                     </div>
                 </div>
             </div>

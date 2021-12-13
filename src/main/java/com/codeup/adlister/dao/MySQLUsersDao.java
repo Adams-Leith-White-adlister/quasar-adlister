@@ -86,4 +86,15 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error creating a new user", e);
         }
     }
+
+    //method to update user profile information
+    public void updateUser(User user) throws SQLException {
+        String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, user.getUsername());
+        statement.setString(2, user.getEmail());
+        statement.setString(3, user.getPassword());
+        statement.setInt(4, user.getId());
+        statement.executeUpdate();
+    }
 }

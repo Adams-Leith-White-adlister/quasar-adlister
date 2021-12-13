@@ -2,12 +2,14 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Create a new Ad" />
+        <jsp:param name="title" value="Post an ad" />
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
     <div class="container">
-        <h1>Create a new Car</h1>
+        <h1>Post an ad</h1>
         <form action="/cars/create" method="post">
             <div class="form-group">
                 <label for="year">Year</label>
