@@ -82,32 +82,15 @@ public class MySQLCarsDao implements Cars {
         return car;
     }
 
-    //write a method to get car by id
-    public Car findById(int id){
-        Car car = null;
-        String query = "SELECT * FROM cars WHERE id = ?";
+    public void deleteCarById(int id) throws SQLException{
+        String query = "DELETE FROM cars WHERE id = ?";
         PreparedStatement ps;
-        try{
-            ps = connection.prepareStatement(query);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                car = new Car(
-                        rs.getInt("id"),
-                        rs.getInt("user_id"),
-                        rs.getInt("year"),
-                        rs.getString("make"),
-                        rs.getString("model"),
-                        rs.getDouble("price"),
-                        rs.getString("description"),
-                        rs.getDate("creation_date")
-                );
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return car;
+        ps = connection.prepareStatement(query);
+        ps.setInt(1, id);
+        ps.executeUpdate();
     }
+
+
 
     // Method for updating a car in the DB
     public void updateCar(Car car) throws SQLException{

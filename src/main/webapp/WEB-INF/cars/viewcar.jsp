@@ -21,7 +21,7 @@
                     <h4 class="card-subtitle mb-1">${car.price}</h4>
                     <p class="card-text">${car.description}</p>
                     <p class="card-text text-muted small">Created by: ${user.username}</p>
-<%--                    <a href="${pageContext.request.contextPath}/edit-car/?carId=${car.id}">Edit Car</a>--%>
+                    <a href="/profile">Back to profile</a>
                 </div>
             </div>
         </div>
