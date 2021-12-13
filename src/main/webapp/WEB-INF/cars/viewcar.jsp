@@ -21,7 +21,8 @@
                     <h4 class="card-subtitle mb-1">${car.price}</h4>
                     <p class="card-text">${car.description}</p>
                     <p class="card-text text-muted small">Created by: ${user.username}</p>
-                    <a href="/profile">Back to profile</a>
+                    <button type="button" onclick="history.back()">Back</button>
+
                 </div>
             </div>
         </div>
