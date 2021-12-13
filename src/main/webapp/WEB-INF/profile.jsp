@@ -22,6 +22,10 @@
                     <h3 class="card-subtitle">${car.price}</h3>
                     <p class="card-text">${car.description}</p>
                     <a href="${pageContext.request.contextPath}/edit-car/?carId=${car.id}">Edit Car</a>
+                    <form action="/profile" method="post">
+                        <button type="submit" name="carId" value="${car.id}" class="btn btn-block btn-primary">Delete</button>
+                    </form>
+
                 </div>
             </div>
         </div>

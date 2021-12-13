@@ -13,11 +13,11 @@ public interface Cars {
 
     List<Car> allById(int id) throws SQLException;
 
-    Car findById(int id);
-
     Object getCarById(int id) throws SQLException;
 
     List<Car> searchCars(String userSearch) throws SQLException;
 
 	void updateCar(Car car) throws SQLException;
+
+	void deleteCarById(int id) throws SQLException;
 }
