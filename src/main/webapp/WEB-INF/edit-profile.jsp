@@ -7,7 +7,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
-<p>This is the edit profile jsp</p>
+  <h1>Edit Profile</h1>
   <form action="/edit-profile" method="post">
     <div class="form-group">
       <label for="username">Name</label>
@@ -24,7 +24,7 @@
     <button type="submit" name="editId" value="${user.id}" class="btn btn-block btn-primary">Submit Changes</button>
 
   </form>
-
+  <a href="/delete-profile" class="btn btn-danger">Delete Profile</a>
 </div>
 
 </body>
