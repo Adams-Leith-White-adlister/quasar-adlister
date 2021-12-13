@@ -34,6 +34,8 @@ public class DeleteProfileServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		request.getSession().removeAttribute("user");  //this is going to log them out after they make changes to their user info
+		request.getSession().invalidate();               //this is going to log them out after they make changes to their user info
 		response.sendRedirect("/cars");
 	}
 }

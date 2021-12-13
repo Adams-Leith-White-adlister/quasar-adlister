@@ -2,6 +2,11 @@
 CREATE DATABASE IF NOT EXISTS carlister_db;
 USE carlister_db;
 
+# TRUNCATE users;
+# TRUNCATE cars;
+# DROP TABLE users;
+# DROP TABLE cars;
+
 # DROP TABLE IF EXISTS cars;
 # DROP TABLE IF EXISTS users;
 

@@ -6,8 +6,8 @@
   </jsp:include></head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="container">
-  <h1>Edit Profile</h1>
+<div class="container create-bg text-light mt-4 py-4 rounded">
+  <h1 class="text-center">Edit Profile</h1>
   <form action="/edit-profile" method="post">
     <div class="form-group">
       <label for="username">Name</label>

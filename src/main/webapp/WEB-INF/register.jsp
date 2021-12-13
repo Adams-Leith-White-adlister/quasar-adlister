@@ -4,13 +4,13 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Please Log In"/>
+        <jsp:param name="title" value="Register Account"/>
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="container">
-    <h1>Registration Form</h1>
+<div class="container create-bg text-light mt-4 py-4 rounded">
+    <h1 class="text-center">Registration Form</h1>
     <form method="post" action="/register">
         <div class="form-group">
             <label for="username">Create Username</label>

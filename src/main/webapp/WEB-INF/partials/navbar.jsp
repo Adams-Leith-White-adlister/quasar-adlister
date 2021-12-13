@@ -15,10 +15,11 @@
                     <c:when test="${sessionScope.user != null}">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Profile Options
+                                Account
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/cars">View Cars</a>
+                                <a class="dropdown-item" href="/profile">View Profile</a>
+                                <a class="dropdown-item" href="/cars">View All Cars</a>
                                 <a class="dropdown-item" href="/cars/create">Post Ad</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/logout">Logout</a>

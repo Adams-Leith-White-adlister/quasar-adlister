@@ -26,13 +26,16 @@ public class CreateCarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = DaoFactory.getUsersDao().findByUsername((String) request.getSession().getAttribute("user"));
 
+        String price = request.getParameter("price");
+        double doublePrice = Double.parseDouble(price.replaceAll(",", ""));
+
         Car car = new Car(
                 user.getId(),
 //                Long.parseLong(request.getParameter("user_id")),
                 Integer.parseInt(request.getParameter("year")) ,
                 request.getParameter("make"),
                 request.getParameter("model"),
-                Double.parseDouble(request.getParameter("price")),
+                doublePrice,
                 request.getParameter("description")
         );
         DaoFactory.getCarsDao().insert(car);
