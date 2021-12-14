@@ -14,8 +14,6 @@ import java.sql.SQLException;
 public class SearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/cars/search.jsp").forward(request, response);
-
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -27,7 +25,7 @@ public class SearchServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+        request.setAttribute("userSearch", userSearch);
         request.getRequestDispatcher("/WEB-INF/cars/search.jsp").forward(request, response);
     }
-
-    }
+}
