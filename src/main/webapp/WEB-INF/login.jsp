@@ -21,7 +21,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
             <br>
-            <p class="bgblock">Not a member?
+            <p>Not a member?
             <a class="btn btn-primary" href="/register">Register here!</a></p>
         </form>
     </div>
