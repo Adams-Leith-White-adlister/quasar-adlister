@@ -19,17 +19,19 @@ public class EditCarServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getSession().getAttribute("user") == null) {
 			response.sendRedirect("/login");
+		} else  {
+			int carId = Integer.parseInt(request.getParameter("carId"));
+
+			try {
+				request.setAttribute("car", DaoFactory.getCarsDao().getCarById(carId));
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			request.getRequestDispatcher("/WEB-INF/cars/edit-car.jsp").forward(request,response);
 		}
 
-		int carId = Integer.parseInt(request.getParameter("carId"));
 
-		try {
-			request.setAttribute("car", DaoFactory.getCarsDao().getCarById(carId));
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		request.getRequestDispatcher("/WEB-INF/cars/edit-car.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
