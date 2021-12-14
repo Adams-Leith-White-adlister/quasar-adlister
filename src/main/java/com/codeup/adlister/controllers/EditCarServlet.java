@@ -3,7 +3,6 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Car;
 import com.codeup.adlister.models.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
 import java.util.Date;
 
 @WebServlet(name = "EditCarServlet", urlPatterns = "/edit-car/*")
@@ -27,11 +25,8 @@ public class EditCarServlet extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-
 			request.getRequestDispatcher("/WEB-INF/cars/edit-car.jsp").forward(request,response);
 		}
-
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -49,13 +44,8 @@ public class EditCarServlet extends HttpServlet {
 				request.getParameter("model"),
 				doublePrice,
 				request.getParameter("description"),
-				new Date() // Do we need the date property?
+				new Date()
 		);
-
-		// For testing
-		System.out.println(car.getDescription());
-		System.out.println(user.getId());
-		System.out.println(car.getId());
 
 		try {
 			DaoFactory.getCarsDao().updateCar(car); // Updates car in DB
@@ -63,6 +53,6 @@ public class EditCarServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("/viewcar/?carId=" + carId);
+		response.sendRedirect("/view-car/?carId=" + carId);
 	}
 }

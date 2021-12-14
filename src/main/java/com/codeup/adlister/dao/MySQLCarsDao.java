@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLCarsDao implements Cars {
-    private Connection connection = null;
+    private Connection connection;
 
     public MySQLCarsDao(Config config) {
         try {
@@ -26,7 +26,7 @@ public class MySQLCarsDao implements Cars {
 
     @Override
     public List<Car> all() {
-        Statement stmt = null;
+        Statement stmt;
         try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM cars");
@@ -37,7 +37,7 @@ public class MySQLCarsDao implements Cars {
     }
 
     //write a method that will allow the logged-in user to see all of their cars
-    public List<Car> allById(int userId) throws SQLException{
+    public List<Car> allByUserId(int userId) throws SQLException{
         String query = "SELECT * FROM cars WHERE user_id = ?";
         PreparedStatement ps;
             ps = connection.prepareStatement(query);

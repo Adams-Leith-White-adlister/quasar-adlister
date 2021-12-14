@@ -31,7 +31,7 @@
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
+                <textarea id="description" name="description" class="form-control"></textarea>
             </div>
             <input type="submit" class="btn btn-block btn-primary" value="Submit">
         </form>
