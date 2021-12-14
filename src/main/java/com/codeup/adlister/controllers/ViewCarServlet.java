@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet (name = "controllers.ViewCarServlet", urlPatterns = "/viewcar/*")
+@WebServlet (name = "controllers.ViewCarServlet", urlPatterns = "/view-car/*")
 public class ViewCarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,7 +26,7 @@ public class ViewCarServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher("/WEB-INF/cars/viewcar.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/cars/view-car.jsp").forward(request, response);
 
     }
 }

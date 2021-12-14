@@ -23,7 +23,7 @@
                         <h5 class="card-title">$<f:formatNumber type="number" pattern="0.00" value="${car.price}"/></h5>
                         <span class="text-muted">Description: </span>
                         <p class="card-text"><c:out value="${car.description}"/></p>
-                            <a href="${pageContext.request.contextPath}/viewcar/?carId=${car.id}" class="btn btn-outline-danger card-link">View
+                            <a href="${pageContext.request.contextPath}/view-car/?carId=${car.id}" class="btn btn-outline-danger card-link">View
                                 Car</a>
                         </div>
                     </div>
