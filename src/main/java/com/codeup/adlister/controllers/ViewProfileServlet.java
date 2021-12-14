@@ -21,7 +21,7 @@ public class ViewProfileServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername((String) request.getSession().getAttribute("user"));
 
         if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect("/error");
         } else {
             try {
                 request.setAttribute("cars", DaoFactory.getCarsDao().allById(user.getId()));

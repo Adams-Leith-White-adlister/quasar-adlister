@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="container">
+<div class="flex-container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="navbar-header">
             <a class="navbar-brand" href="/cars">Carlister</a>
@@ -8,7 +8,6 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <c:choose>
@@ -25,17 +24,13 @@
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </li>
-
                     </c:when>
                     <c:otherwise>
-
                         <li class="nav-item pl-2">
                             <a href="/login" class="text-light nav-link">Login</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
-
-
             </ul>
             <form class="form-inline my-2 my-lg-0" action="/search" method="post">
                 <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
