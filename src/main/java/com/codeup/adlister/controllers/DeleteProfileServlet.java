@@ -20,7 +20,7 @@ public class DeleteProfileServlet extends HttpServlet {
 			response.sendRedirect("/login");
 		} else {
 			request.setAttribute("user", user);
-			request.getRequestDispatcher("/WEB-INF/delete-profile.jsp").forward(request,response);
+			request.getRequestDispatcher("/WEB-INF/users/delete-profile.jsp").forward(request,response);
 		}
 
 

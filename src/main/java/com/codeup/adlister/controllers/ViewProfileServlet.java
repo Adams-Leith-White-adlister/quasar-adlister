@@ -29,7 +29,7 @@ public class ViewProfileServlet extends HttpServlet {
                 e.printStackTrace();
             }
             System.out.println();
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/users/profile.jsp").forward(request, response);
         }
     }
 
