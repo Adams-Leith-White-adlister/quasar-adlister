@@ -18,7 +18,7 @@ import java.util.Date;
 public class EditCarServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getSession().getAttribute("user") == null) {
-			response.sendRedirect("/login");
+			response.sendRedirect("/error");
 		} else  {
 			int carId = Integer.parseInt(request.getParameter("carId"));
 

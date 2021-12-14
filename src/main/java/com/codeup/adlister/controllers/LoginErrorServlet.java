@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "login-error", urlPatterns = "/loginError")
+@WebServlet(name = "login-error", urlPatterns = "/error")
 public class LoginErrorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/login-error.jsp").forward(request, response);

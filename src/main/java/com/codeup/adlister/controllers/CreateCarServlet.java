@@ -17,7 +17,7 @@ import java.util.Locale;
 public class CreateCarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getSession().getAttribute("user") == null){
-            response.sendRedirect("/login");
+            response.sendRedirect("/error");
         } else {
             request.getRequestDispatcher("/WEB-INF/cars/create.jsp")
                     .forward(request, response);
