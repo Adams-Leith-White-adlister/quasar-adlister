@@ -27,18 +27,16 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
 
-
         // TODO: find a record in your database that matches the submitted password
         // TODO: make sure we find a user with that username
         // TODO: check the submitted password against what you have in your database
         User userVar = DaoFactory.getUsersDao().findByUsername(username);
 
 
-
-        if(userVar == null) {
-            //response.sendRedirect("/loginError");
-            JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ERROR! incorrect username or password");
-            response.sendRedirect("/login");
+        if (userVar == null) {
+            response.sendRedirect("/loginError");
+//            JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ERROR! incorrect username or password");
+            //response.sendRedirect("/login");
             return;
         }
 
@@ -51,10 +49,11 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", username);
             response.sendRedirect("/profile");
         } else {
-            JFrame frame = new JFrame();
-            //response.sendRedirect("/loginError");
-            JOptionPane.showMessageDialog(frame, "ERROR! incorrect username or password");
-            response.sendRedirect("/login");
+
+            response.sendRedirect("/loginError");
+            //           JFrame frame = new JFrame();
+//            JOptionPane.showMessageDialog(frame, "ERROR! incorrect username or password");
+//            response.sendRedirect("/login");
         }
     }
 }

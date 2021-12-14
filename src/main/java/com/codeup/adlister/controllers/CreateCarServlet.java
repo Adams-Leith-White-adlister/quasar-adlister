@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Locale;
 
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/cars/create")
@@ -28,13 +29,15 @@ public class CreateCarServlet extends HttpServlet {
 
         String price = request.getParameter("price");
         double doublePrice = Double.parseDouble(price.replaceAll(",", ""));
+        String capMake = request.getParameter("make").substring(0, 1).toUpperCase() + request.getParameter("make").substring(1);
+        String capModel = request.getParameter("model").substring(0, 1).toUpperCase() + request.getParameter("model").substring(1);
+
 
         Car car = new Car(
                 user.getId(),
-//                Long.parseLong(request.getParameter("user_id")),
                 Integer.parseInt(request.getParameter("year")) ,
-                request.getParameter("make"),
-                request.getParameter("model"),
+                capMake,
+                capModel,
                 doublePrice,
                 request.getParameter("description")
         );
