@@ -11,18 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
+@WebServlet(name = "RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-
-        {
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-
-
         }
 
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            // TODO: ensure the submitted information is valid --check if they're null or empty
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
             String username = request.getParameter("username");
             String email = request.getParameter("email");
             String preHashedPassword = request.getParameter("password");
@@ -42,8 +37,8 @@ public class RegisterServlet extends HttpServlet {
                 return;
             }
 
-            DaoFactory.getUsersDao().insert(new User(username, email, password));  // TODO: create a new user based off of the submitted information
+            DaoFactory.getUsersDao().insert(new User(username, email, password));
 
-            response.sendRedirect("/login");   // TODO: if a user was successfully created, send them to their profile
+            response.sendRedirect("/login");
         }
 }

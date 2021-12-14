@@ -3,7 +3,6 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
 import org.mindrot.jbcrypt.BCrypt;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,10 +22,6 @@ public class EditProfileServlet extends HttpServlet {
             request.setAttribute("user", user);
             request.getRequestDispatcher("/WEB-INF/users/edit-profile.jsp").forward(request,response);
         }
-
-
-
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -41,10 +36,6 @@ public class EditProfileServlet extends HttpServlet {
                 request.getParameter("email"),
                 user.setPassword(password)
         );
-        System.out.println(updateUser.getId());
-        System.out.println(updateUser.getUsername());
-        System.out.println(updateUser.getEmail());
-        System.out.println(updateUser.getPassword());
 
         try {
             DaoFactory.getUsersDao().updateUser(updateUser);
@@ -52,8 +43,9 @@ public class EditProfileServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getSession().removeAttribute("user");  //this is going to log them out after they make changes to their user info
-        request.getSession().invalidate();               //this is going to log them out after they make changes to their user info
+        //log out user and redirect to login page after they edit their profile
+        request.getSession().removeAttribute("user");
+        request.getSession().invalidate();
         response.sendRedirect("/login");
 
     }
