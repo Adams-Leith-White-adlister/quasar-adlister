@@ -17,3 +17,7 @@ body {
     background-color: rgba(41, 43, 44, 0.5);
 }
 
+.error-bg{
+    background-image: url("/img/vintage-car-crash-fall.gif");
+}
+
