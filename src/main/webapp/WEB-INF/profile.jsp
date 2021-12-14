@@ -12,7 +12,9 @@
 
 <div class="container">
     <h1 class="text-center mt-2">Welcome, <c:out value="${sessionScope.user}"/>!</h1>
-    <a href="/edit-profile" class="btn btn-primary mb-2">Edit My Profile</a>
+   <div class="d-flex align-items-end flex-column bd-highlight mb-3">
+       <a href="/edit-profile" class="btn btn-outline-danger" id="edit">Edit My Profile</a>
+   </div>
     <div class="row">
         <c:forEach var="car" items="${cars}">
         <div class="col-12 col-sm-6 col-lg-4 text-center">
