@@ -11,7 +11,7 @@
   <form action="/edit-profile" method="post">
     <div class="form-group">
       <label for="username">Name</label>
-      <input id="username" name="username" class="form-control" type="text" value="${user.username}" required>
+      <input id="username" name="username" class="form-control" type="text" minlength="4" value="${user.username}" required>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
       <label for="password">New Password</label>
-      <input id="password" name="password" class="form-control" type="text" required>
+      <input id="password" name="password" class="form-control" minlength="8" type="text" required>
     </div>
     <button type="submit" name="editId" value="${user.id}" class="btn btn-block btn-primary">Submit Changes</button>
 

@@ -53,6 +53,6 @@ public class EditCarServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("/view-car/?carId=" + carId);
+		response.sendRedirect("/profile");
 	}
 }

@@ -26,7 +26,9 @@
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input id="price" name="price" class="form-control" type="text" required>
+                <input type="number" name="price" class="form-control" id="price"
+                       pattern="[0-9]+([\.,][0-9]+)?" step="0.01"
+                       title="This should be a number with up to 2 decimal places." required>
             </div>
 
             <div class="form-group">

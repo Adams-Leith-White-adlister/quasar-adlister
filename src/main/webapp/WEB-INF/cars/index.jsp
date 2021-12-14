@@ -12,7 +12,6 @@
 
 <div class="container">
     <h1 class="text-center mt-2">Here are all the cars!</h1>
-
     <div class="row">
         <c:forEach var="car" items="${cars}">
             <div class="col-12 col-sm-6 col-lg-4 text-center">
@@ -32,6 +31,5 @@
         </c:forEach>
     </div>
 </div>
-
 </body>
 </html>

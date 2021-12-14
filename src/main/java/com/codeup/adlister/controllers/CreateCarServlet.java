@@ -17,7 +17,7 @@ public class CreateCarServlet extends HttpServlet {
         if(request.getSession().getAttribute("user") == null){
             response.sendRedirect("/error");
         } else {
-            request.getRequestDispatcher("/WEB-INF/cars/create.jsp")
+            request.getRequestDispatcher("/WEB-INF/cars/create-car.jsp")
                     .forward(request, response);
         }
     }
@@ -30,7 +30,6 @@ public class CreateCarServlet extends HttpServlet {
         String capMake = request.getParameter("make").substring(0, 1).toUpperCase() + request.getParameter("make").substring(1);
         String capModel = request.getParameter("model").substring(0, 1).toUpperCase() + request.getParameter("model").substring(1);
 
-
         Car car = new Car(
                 user.getId(),
                 Integer.parseInt(request.getParameter("year")) ,
@@ -40,6 +39,6 @@ public class CreateCarServlet extends HttpServlet {
                 request.getParameter("description")
         );
         DaoFactory.getCarsDao().insert(car);
-        response.sendRedirect("/cars");
+        response.sendRedirect("/profile");
     }
 }
