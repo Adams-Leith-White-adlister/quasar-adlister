@@ -22,7 +22,6 @@ public class RegisterServlet extends HttpServlet {
             String email = request.getParameter("email");
             String preHashedPassword = request.getParameter("password");
             String password = BCrypt.hashpw(preHashedPassword, BCrypt.gensalt());
-            System.out.println(preHashedPassword);
 
             if (request.getSession().getAttribute("user") != null) {
                 response.sendRedirect("/profile");

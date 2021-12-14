@@ -12,3 +12,16 @@ body {
 .create-bg {
     background-color: rgba(41, 43, 44, 0.5);
 }
+
+.card2:hover {
+    transform: scale(1.1);
+    transition-duration: .3s;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.trash-color {
+    background-color: #9f1a27;
+}

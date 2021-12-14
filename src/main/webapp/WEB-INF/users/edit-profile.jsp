@@ -6,6 +6,9 @@
   </jsp:include></head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<div class="container">
+  <button type="button" class="btn btn-outline-danger mt-4" onclick="history.back()">Back</button>
+</div>
 <div class="container create-bg text-light mt-4 py-4 rounded">
   <h1 class="text-center">Edit Profile</h1>
   <form action="/edit-profile" method="post">
