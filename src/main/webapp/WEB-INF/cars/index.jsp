@@ -14,19 +14,23 @@
     <h1 class="text-center mt-2">Here are all the cars!</h1>
     <div class="row">
         <c:forEach var="car" items="${cars}">
+
             <div class="col-12 col-sm-6 col-lg-4 text-center">
-                <div class="card mb-3 shadow border-danger">
-                    <div class="bg-dark text-light rounded-lg">
-                        <h4 class="card-header"><c:out value="${car.year} ${car.make} ${car.model}"/></h4>
-                        <div class="card-body">
-                            <h5 class="card-title">$<f:formatNumber type="number" pattern="0.00" value="${car.price}"/></h5>
-                            <span class="text-muted">Description: </span>
-                            <p class="card-text"><c:out value="${car.description}"/></p>
-                            <a href="${pageContext.request.contextPath}/view-car/?carId=${car.id}" class="btn btn-outline-danger card-link">View
-                                Car</a>
+                <a href="${pageContext.request.contextPath}/view-car/?carId=${car.id}">
+
+                    <div class="card card2 mb-3 shadow border-danger">
+                        <div class="bg-dark text-light rounded-lg">
+                            <h4 class="card-header"><c:out value="${car.year} ${car.make} ${car.model}"/></h4>
+                            <div class="card-body">
+                                <h5 class="card-title">$<f:formatNumber type="number" pattern="0.00" value="${car.price}"/></h5>
+                                <span class="text-muted">Description: </span>
+                                <p class="card-text"><c:out value="${car.description}"/></p>
+                                <button class="btn btn-outline-danger card-link">View
+                                    Car</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </c:forEach>
     </div>
