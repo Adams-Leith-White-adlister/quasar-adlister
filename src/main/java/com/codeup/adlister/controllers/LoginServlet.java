@@ -22,21 +22,16 @@ public class LoginServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-
-        // TODO: find a record in your database that matches the submitted password
-        // TODO: make sure we find a user with that username
-        // TODO: check the submitted password against what you have in your database
         User userVar = DaoFactory.getUsersDao().findByUsername(username);
 
 
         if (userVar == null) {
-            response.sendRedirect("/loginError");
-//            JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "ERROR! incorrect username or password");
-            //response.sendRedirect("/login");
+            request.setAttribute("userNameError", "Invalid Username");
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
 
@@ -45,15 +40,11 @@ public class LoginServlet extends HttpServlet {
         boolean validAttempt = username.equals(userVar.getUsername()) && passwordMatch;
 
         if (validAttempt) {
-            // TODO: store the logged in user object in the session, instead of just the username
             request.getSession().setAttribute("user", username);
             response.sendRedirect("/profile");
         } else {
-
-            response.sendRedirect("/loginError");
-            //           JFrame frame = new JFrame();
-//            JOptionPane.showMessageDialog(frame, "ERROR! incorrect username or password");
-//            response.sendRedirect("/login");
+            request.setAttribute("error", "Incorrect Password");
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }
 }
